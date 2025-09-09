@@ -46,3 +46,26 @@ Set default editot
 ```bash
 git config --global core.editor nvim
 ```
+
+### Setuping ssh
+Create .ssh dir
+```bash
+mkdir ~/.ssh
+```
+Add the file `ssh_start.sh` into `.ssh` foler and add this to `.bashrc`
+```bash
+source ~/.ssh/ssh_start.sh
+```
+Then you can run the script and add or create ssh keys. Remember private keys should not be publicly seen by other users, you should run
+```bash
+chmod 600 <sshkey>
+```
+After all check if keys were added properly
+```bash
+ssh-add -l
+```
+If the agent is running but there is no key try add it manualy and resolve the error
+```bash
+ssh-add <sshkey>
+```
+
