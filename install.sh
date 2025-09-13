@@ -2,7 +2,7 @@
 
 # Update packeges and mirrors
 sudo pacman -Syu
-# Download tools and python, C, C++, latex environment
+# Download tools and python, C, C++, latex environment, java
 sudo pacman -S --needed \
     tmux ripgrep fzf mc okular\
     base-devel \
@@ -18,10 +18,25 @@ sudo pacman -S --needed \
     texlive-basic texlive-latex texlive-latexextra texlive-latexrecommended \
     texlive-bibtexextra texlive-binextra texlive-context texlive-pictures texlive-metapost texlive-mathscience texlive-formatsextra\
     texlive-fontsextra texlive-fontsrecommended texlive-fontutils \
-    texlive-langpolish
+    texlive-langpolish \
+    jdk-openjdk
 
 # Installing tools through python uv
 pipx ensurepath
 pipx install uv
+# Ensure uv is visible
 source ~/.bashrc
+uv tool install mypy 
+uv tool install ruff 
 uv tool install pre-commit
+
+# Install nvim plug
+if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; then
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fi
+
+# Install tmux plugin manager
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
