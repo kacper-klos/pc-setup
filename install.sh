@@ -4,7 +4,7 @@
 sudo pacman -Syu
 # Download tools and python, C, C++, latex environment, java, java script, rust
 sudo pacman -S --needed \
-    tmux ripgrep fzf mc okular zip unzip\
+    tmux ripgrep fzf mc okular zip unzip wget \
     base-devel \
     gcc \
     clang lld libc++ \
@@ -44,3 +44,18 @@ fi
 if [ ! -d ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# Decide on the clipboard for nvim integration and uncomment proper line
+#
+# X11
+# sudo pacman -S xclip
+#
+# Wayland
+# sudo pacman -S wl-clipboard
+#
+# WSL
+# wget https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
+# unzip win32yank-x64.zip
+# chmod +x win32yank.exe
+# sudo mv win32yank.exe /usr/local/bin/
+
