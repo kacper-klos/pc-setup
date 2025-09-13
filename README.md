@@ -69,3 +69,12 @@ If the agent is running but there is no key try add it manualy and resolve the e
 ssh-add <sshkey>
 ```
 
+## Instalation
+It is sufficient that you run
+```bash
+git clone git@github.com:kacper-klos/pc-setup.git
+cd pc-setup
+./install.sh
+```
+You may also look into the `install.sh` and uncomment line for clipboard integration. 
+After that you should restart shell and everything should be working as expected.

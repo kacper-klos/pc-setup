@@ -45,6 +45,44 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# Define locations
+NVIM_DIR="$HOME/.config"
+NVIM_CONFIG="nvim"
+NVIM_PATH="$NVIM_DIR/$NVIM_CONFIG"
+
+TMUX_DIR="$HOME"
+TMUX_CONFIG=".tmux.conf"
+TMUX_PATH="$TMUX_DIR/$TMUX_CONFIG"
+
+# yes/no helper
+yes_no() {
+    printf "%s [y/N]: " "$1"
+    read -r ans
+    case "$ans" in
+        [Yy]*) return 0 ;;
+        *)     return 1 ;;
+    esac
+}
+# Load nvim
+if [ -d "$NVIM_PATH" ]; then
+    if yes_no "Do you want to remove current nvim config?"; then
+        rm -r "$NVIM_PATH"
+        cp -r "$NVIM_CONFIG" "$NVIM_DIR"
+    fi
+else
+    cp -r "$NVIM_CONFIG" "$NVIM_DIR"
+fi
+# Load tmux
+if [ -f "$TMUX_PATH" ]; then
+    if yes_no "Do you want to remove current tmux config?"; then
+        rm "$TMUX_PATH"
+        cp "$TMUX_CONFIG" "$TMUX_DIR"
+    fi
+else
+    cp "$TMUX_CONFIG" "$TMUX_DIR"
+fi
+
+
 # Decide on the clipboard for nvim integration and uncomment proper line
 #
 # X11
@@ -53,7 +91,7 @@ fi
 # Wayland
 # sudo pacman -S wl-clipboard
 #
-# WSL
+# WSL (need to uncomment line in nvim/lua/setup.lua)
 # wget https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
 # unzip win32yank-x64.zip
 # chmod +x win32yank.exe
