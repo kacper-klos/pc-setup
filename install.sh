@@ -4,7 +4,7 @@
 sudo pacman -Syu
 # Download tools and python, C, C++, latex environment, java, java script, rust
 sudo pacman -S --needed \
-    tmux ripgrep fzf mc okular zip unzip wget \
+    tmux ripgrep fzf mc okular zip unzip wget less\
     base-devel \
     gcc \
     clang lld libc++ \
@@ -82,6 +82,10 @@ else
     cp "$TMUX_CONFIG" "$TMUX_DIR"
 fi
 
+# Aditional packages I use in projects
+# sudo pacman -S glpk qt6-base qt6-tools
+#
+# Depending on 
 
 # Decide on the clipboard for nvim integration and uncomment proper line
 #
@@ -92,8 +96,9 @@ fi
 # sudo pacman -S wl-clipboard
 #
 # WSL (need to uncomment line in nvim/lua/setup.lua)
-# wget https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
-# unzip win32yank-x64.zip
-# chmod +x win32yank.exe
-# sudo mv win32yank.exe /usr/local/bin/
-
+# WINCLIP_DIR="winclip"
+# wget -P "$WINCLIP_DIR" https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
+# unzip "${WINCLIP_DIR}/win32yank-x64.zip" -d "$WINCLIP_DIR"
+# chmod +x "${WINCLIP_DIR}/win32yank.exe"
+# sudo mv "${WINCLIP_DIR}/win32yank.exe" /usr/local/bin/
+# rm -rf "$WINCLIP_DIR"
