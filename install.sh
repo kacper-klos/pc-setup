@@ -4,7 +4,8 @@
 sudo pacman -Syu
 # Download tools and python, C, C++, latex environment, java, java script, rust
 sudo pacman -S --needed \
-    tmux ripgrep fzf mc okular zip unzip wget less\
+    vim nvim sudo git openssh \
+    tmux ripgrep fzf mc okular zip unzip wget less yarn \
     base-devel \
     gcc \
     clang lld libc++ \
@@ -45,6 +46,16 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# Usefull git settings
+git config --global core.editor nvim
+git config --global rebase.autosquash true
+git config --global rebase.updateRefs true
+git config --global color.ui auto
+git config --global format.pretty oneline
+git config --global init.defaultBranch main
+git config --global branch.autoSetupMerge always
+git config --global core.autocrlf input
+
 # Define locations
 NVIM_DIR="$HOME/.config"
 NVIM_CONFIG="nvim"
@@ -82,10 +93,10 @@ else
     cp "$TMUX_CONFIG" "$TMUX_DIR"
 fi
 
-# Aditional packages I use in projects
-# sudo pacman -S glpk qt6-base qt6-tools
-#
-# Depending on 
+if yes_no "Do you want to install aditional packages?"; then 
+    sudo pacman -S glpk qt6-base qt6-tools
+fi
+
 
 # Decide on the clipboard for nvim integration and uncomment proper line
 #
