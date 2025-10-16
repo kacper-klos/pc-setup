@@ -6,4 +6,10 @@ sudo pacman -S --needed \
     sddm \
     nvidia nvidia-utils nvidia-settings \
     kitty \
+    geeqie \
     qotf-codenewroman-nerd
+
+# Set proper keyboard
+sudo localectl set-x11-keymap pl
+sudo localectl set-keymap pl
+
