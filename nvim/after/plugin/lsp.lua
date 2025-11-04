@@ -69,3 +69,4 @@ cmp.setup({
 })
 
 lsp.setup()
+require('hlargs').setup()

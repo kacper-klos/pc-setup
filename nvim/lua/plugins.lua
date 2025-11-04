@@ -1,5 +1,4 @@
 vim.cmd([[call plug#begin("~/.local/share/nvim/plugged")
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.8'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -21,6 +20,7 @@ Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 
 Plug 'Vigemus/iron.nvim'
+Plug 'numToStr/Comment.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
@@ -28,6 +28,7 @@ Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'm-demare/hlargs.nvim'
 
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
