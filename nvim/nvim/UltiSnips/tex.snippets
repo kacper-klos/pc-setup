@@ -1,0 +1,141 @@
+snippet latexdoc "Basic LaTeX document"
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+\title{$1}
+\author{Kacper Kłos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+$2
+
+\section{Main Content}
+
+$3
+
+\section{Conclusion}
+
+$4
+
+\end{document}
+endsnippet
+
+snippet latexhomework "LaTeX homework template"
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\newenvironment{Solution}
+  {\begin{proof}[\textbf{Solution}]}
+  {\end{proof}}
+
+\title{Homework}
+\author{Kacper Kłos}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5in}
+
+
+
+\subsection*{Exercise 1}
+$1\\
+
+\begin{Solution}
+$2
+\end{Solution}
+
+
+\end{document}
+endsnippet
+
+snippet latexhomeworkexercise "Exercise for homework template"
+
+\vspace{0.15in}
+
+\subsection*{Exercise $1}
+$2\\
+
+\begin{Solution}
+$3
+\end{Solution}
+
+endsnippet
+
+snippet raport "Blueprint for academic report"
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\title{$1}
+\author{Kacper Kłos}
+
+\begin{document}
+
+\maketitle
+$2
+Abstract
+
+\newpage
+\section{Podstawy Teoretyczne}
+
+$3
+
+\section{Układ Doświadczalny}
+
+$4
+
+\section{Wyniki Pomierów}
+
+$5
+
+\section{Podsumowanie}
+
+$6
+
+\newpage
+\begin{thebibliography}
+
+\bibitem{example}
+\emph{Example Text}, Me.
+
+\end{thebibliography}
+
+\end{document}
+endsnippet
+
+
