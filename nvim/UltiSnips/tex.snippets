@@ -1,27 +1,35 @@
 snippet latexdoc "Basic LaTeX document"
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
 
 \title{$1}
 \author{Kacper Kłos}
-\date{\today}
 
 \begin{document}
 
 \maketitle
 
-\section{Introduction}
-
 $2
-
-\section{Main Content}
-
-$3
-
-\section{Conclusion}
-
-$4
 
 \end{document}
 endsnippet
