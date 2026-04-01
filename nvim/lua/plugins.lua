@@ -19,7 +19,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 
-Plug 'Vigemus/iron.nvim'
 Plug 'numToStr/Comment.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
@@ -45,5 +44,10 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'nvim-neotest/nvim-nio'
 Plug 'rcarriga/nvim-dap-ui'
 
+Plug 'GCBallesteros/jupytext.nvim'
+Plug '3rd/image.nvim'
+Plug 'benlubas/molten-nvim', {'do': ':UpdateRemotePlugins'} 
+Plug 'GCBallesteros/NotebookNavigator.nvim'
+Plug 'nvim-mini/mini.comment'
 call plug#end()
 ]])

@@ -1,4 +1,4 @@
-snippet latexdoc "Basic LaTeX document"
+snippet doc "Basic LaTeX document"
 \documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
@@ -34,11 +34,22 @@ $2
 \end{document}
 endsnippet
 
-snippet latexhomework "LaTeX homework template"
+snippet homework "LaTeX homework template"
 \documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
 \usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
 
 \setlength{\parindent}{0in}
 \setlength{\oddsidemargin}{0in}
@@ -47,43 +58,35 @@ snippet latexhomework "LaTeX homework template"
 \setlength{\topmargin}{0in}
 \setlength{\headheight}{18pt}
 
-\newenvironment{Solution}
-  {\begin{proof}[\textbf{Solution}]}
-  {\end{proof}}
-
-\title{Homework}
 \author{Kacper Kłos}
-
 \begin{document}
 
-\maketitle
+\noindent
+Kacper Kłos \hfill Mechanika Kwantowa, zestaw 1\\
+\rule{\textwidth}{0.4pt} 
+\vspace{1em}
 
-\vspace{0.5in}
+\noindent \textbf{Problem 1}
+\vspace{0.5em}
 
+State the problem here. 
 
-
-\subsection*{Exercise 1}
-$1\\
-
-\begin{Solution}
-$2
-\end{Solution}
-
+\begin{proof}[Solution]
+Your solution goes here.
+\end{proof}
 
 \end{document}
 endsnippet
 
-snippet latexhomeworkexercise "Exercise for homework template"
+snippet hex "Exercise for homework template"
+\noindent \textbf{Problem 1}
+\vspace{0.5em}
 
-\vspace{0.15in}
+State the problem here. 
 
-\subsection*{Exercise $1}
-$2\\
-
-\begin{Solution}
-$3
-\end{Solution}
-
+\begin{proof}[Solution]
+Your solution goes here.
+\end{proof}
 endsnippet
 
 snippet raport "Blueprint for academic report"
@@ -147,3 +150,22 @@ $6
 endsnippet
 
 
+snippet eq
+\begin{equation}
+$1
+\end{equation}
+endsnippet
+
+snippet eq*
+\begin{equation*}
+$1
+\end{equation*}
+endsnippet
+
+snippet fr
+\frac{$1}{$2}
+endsnippet
+
+snippet par
+\frac{\partial $1}{\partial $2}
+endsnippet

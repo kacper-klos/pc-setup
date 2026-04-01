@@ -23,23 +23,30 @@ sudo pacman -S --needed \
     texlive-langpolish \
     jdk-openjdk \
     nodejs npm \
-    rust
+    rust \
+    imagemagick
 
-# Installing tools through python uv
-pipx ensurepath
-pipx install uv
+# Installing python uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 # Ensure uv is visible
 source ~/.bashrc
 # Install tools through uv
-uv tool install mypy 
-uv tool install ruff 
-uv tool install pre-commit
-
+uv tool install --upgrade mypy 
+uv tool install --upgrade ruff 
+uv tool install --upgrade pre-commit
+# Nvim jupyter support.
+uv tool install --upgrade jupytext
 # Install nvim plug
 if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; then
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
+
+# Create nvim pip venv
+mkdir -p ~/.virtualenvs
+uv venv ~/.virtualenvs/nvim
+uv pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip --python ~/.virtualenvs/nvim
+mkdir -p ~/.local/share/jupyter/runtime
 
 # Install tmux plugin manager
 if [ ! -d ~/.tmux/plugins/tpm ]; then
