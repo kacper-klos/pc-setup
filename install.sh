@@ -5,7 +5,7 @@ sudo pacman -Syu
 # Download tools and python, C, C++, latex environment, java, java script, rust
 sudo pacman -S --needed \
     vim nvim sudo git openssh \
-    tmux ripgrep fzf mc okular zip unzip wget less yarn \
+    tmux ripgrep fzf fd tree-sitter-cli mc okular zip unzip wget less yarn \
     base-devel \
     gcc \
     clang lld libc++ \
@@ -22,9 +22,12 @@ sudo pacman -S --needed \
     texlive-fontsextra texlive-fontsrecommended texlive-fontutils \
     texlive-langpolish \
     jdk-openjdk \
-    nodejs npm \
     rust \
     imagemagick
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+nvm install --lts
+npm install -g neovim
 
 # Installing python uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
