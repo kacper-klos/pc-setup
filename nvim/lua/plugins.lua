@@ -1,6 +1,6 @@
 vim.cmd([[call plug#begin("~/.local/share/nvim/plugged")
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.8'}
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'Abstract-IDE/Abstract-cs'
