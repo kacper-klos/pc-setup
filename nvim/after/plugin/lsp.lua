@@ -1,8 +1,24 @@
 local lsp = require("lsp-zero")
 local cmp = require("cmp")
+local lsp_signature = require("lsp_signature")
+
+local signature_cfg = {
+  bind = true,
+  floating_window = true,
+  hint_enable = false,
+  always_trigger = true,
+  extra_trigger_chars = { "(", "," },
+  handler_opts = {
+    border = "rounded",
+  },
+}
+
+lsp_signature.setup(signature_cfg)
 
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr }
+
+  lsp_signature.on_attach(signature_cfg, bufnr)
 
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, opts)
@@ -10,7 +26,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, opts)
   vim.keymap.set("n", "<leader>lo", vim.lsp.buf.type_definition, opts)
   vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
+  vim.keymap.set({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help, opts)
   vim.keymap.set({ "n", "x" }, "<F3>", function()
     vim.lsp.buf.format({ async = true })
   end, opts)
