@@ -23,15 +23,20 @@ sudo pacman -S --needed \
     texlive-langpolish \
     jdk-openjdk \
     rust \
+    stylua prettier \
     imagemagick
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-nvm install --lts
+nvm install 24
 npm install -g neovim
 
 # Installing python uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 # Ensure uv is visible
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
+eval "$(uv generate-shell-completion bash)"
+eval "$(uvx --generate-shell-completion bash)"
 source ~/.bashrc
 # Install tools through uv
 uv tool install --upgrade mypy 
