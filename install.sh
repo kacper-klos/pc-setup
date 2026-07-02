@@ -24,7 +24,8 @@ sudo pacman -S --needed \
     jdk-openjdk \
     rust \
     stylua prettier \
-    imagemagick
+    imagemagick \
+    verilator yosys graphviz
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 nvm install 24
