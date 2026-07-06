@@ -22,6 +22,7 @@ require("conform").setup({
         cpp = { "clang-format" },
         c = { "clang-format" },
         rust = { "rustfmt" },
+        systemverilog = { "verible" },
         javascript = { "prettier", stop_after_first = true },
         typescript = { "prettier", stop_after_first = true },
         json = { "prettier", stop_after_first = true },
@@ -79,6 +80,8 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "texlab",
         "jdtls",
+        "vtsls",
+        "verible",
     },
     handlers = {
         lsp.default_setup,
